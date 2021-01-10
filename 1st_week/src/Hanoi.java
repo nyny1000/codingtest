@@ -12,8 +12,8 @@ public class Hanoi {
 		int n = scan.nextInt();
  
 		hanoi(n, 1, 2, 3);
-		System.out.println(move);
-		System.out.print(sb);
+		System.out.println(move); // 원판 이동횟수
+		System.out.print(sb); // 워판 이동순서
 
 	}
 
@@ -22,11 +22,11 @@ public class Hanoi {
 //	mid: 원판을 옮길 때 거쳐가는 위치
 	public static void hanoi(int n, int from, int mid, int to) {
 
-		move++;
+		move++;// 이동횟수
 
 		// base case: 원판이 하나 남았을 때
 		if (n == 1) {
-			sb.append(from + " " + to + "\n");
+			sb.append(from + " " + to + "\n"); // 하나의 원판이 이동할 때 
 			return;
 		}
 

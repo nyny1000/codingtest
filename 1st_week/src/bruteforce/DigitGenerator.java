@@ -22,10 +22,12 @@ public class DigitGenerator {
 				return generator;
 		}
 
+		//생성자가 없을 시 0반환
 		return 0;
 
 	}
 
+	//생성자의 각 자리수에 해당하는 숫자를 더해 반환.
 	public static int digitSum(int generator) {
 		List<Integer> digitArray = new ArrayList<Integer>();
 		int sum = 0;
