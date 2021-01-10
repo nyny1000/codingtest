@@ -1,5 +1,6 @@
 //kny
 package bruteforce;
+
 import java.util.*;
 
 public class Blackjack {
@@ -10,10 +11,10 @@ public class Blackjack {
 		// TODO Auto-generated method stub
 
 		Scanner scan = new Scanner(System.in);
-		int N = scan.nextInt(); //N장의 카드
-		int M = scan.nextInt(); //딜러가 발표할 수 M
+		int N = scan.nextInt(); // N장의 카드
+		int M = scan.nextInt(); // 딜러가 발표할 수 M
 
-		//N장의 카드 입력
+		// N장의 카드 입력
 		int[] cardArray = new int[N];
 		for (int i = 0; i < N; i++) {
 			cardArray[i] = scan.nextInt();
@@ -22,7 +23,7 @@ public class Blackjack {
 //		N장의 카드중 3장을 뽑는 조합들을 구한 후,
 //		totals라는 전역변수에 저장. 
 //		blackjack함수에서 totals에서 M보다 작으면서 가장 큰 수를 찾아 반환.
-		
+
 		boolean[] vistied = new boolean[N];
 		combination(cardArray, vistied, 0, N, 3);
 		System.out.println(blackjack(M));
@@ -45,7 +46,7 @@ public class Blackjack {
 
 	}
 
-	//각 조합의 array의 합을 구해 전역변수 totals에 저장.
+	// 각 조합의 array의 합을 구해 전역변수 totals에 저장.
 	public static void result(int[] arr, boolean[] visited) {
 		int total = 0;
 		for (int i = 0; i < arr.length; i++) {
@@ -56,18 +57,24 @@ public class Blackjack {
 		totals.add(total);
 	}
 
-	//n개의 카드 중 r개를 고르는 조합을 구하는 함수
+	// n개의 카드 중 r개를 고르는 조합을 구하는 함수
 	public static void combination(int[] arr, boolean[] visited, int depth, int n, int r) {
-		if (r == 0) {
+
+		// base case
+		if (r == 0) {// 하나의 조합이 만들어졌을 때
 			result(arr, visited);
 			return;
 		}
-		if (depth == n) {
+		if (depth == n) { // 조합을 모두 찾았을 때
 			return;
-		} else {
+		}
+
+		else {
+			// 현재 인덱스(depth)가 조합에 선택될경우
 			visited[depth] = true;
 			combination(arr, visited, depth + 1, n, r - 1);
 
+			// 현재 인덱스가 조합에 선택되지 않은 경우
 			visited[depth] = false;
 			combination(arr, visited, depth + 1, n, r);
 		}
