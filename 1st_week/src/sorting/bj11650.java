@@ -27,9 +27,9 @@ public class bj11650 {
 			@Override
 			public int compare(int[] x, int[] y) {
 				if (x[0] == y[0]) { //x좌표가 같을 때
-					return x[1] - y[1]; // y좌표를 비교하여 오름차순 정렬
+					return x[1] - y[1]; // y좌표를 비교하여 정렬
 				}
-				return x[0]- y[0]; // 이외의 경우에는 그냥 오름차순 정렬.
+				return x[0]- y[0]; 
 			}
 
 		});
