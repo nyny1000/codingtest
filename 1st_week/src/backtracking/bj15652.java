@@ -34,7 +34,7 @@ public class bj15652 {
 			return;
 		} else {
 			for (int i = 1; i <= N; i++) { //visit 체크 안하기 (숫자 중복 허용하도록)
-				if (d == 0 || arr[d-1] <= i) {
+				if (d == 0 || arr[d-1] <= i) { //d==0이거나, 뒤에오는 수가 같거나 큰 경우
 					visit[i] = true;
 					arr[d] = i;
 					dfs(d + 1);
